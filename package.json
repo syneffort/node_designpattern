@@ -1,7 +1,6 @@
 {
   "name": "node_designpattern",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +14,14 @@
   "bugs": {
     "url": "https://github.com/syneffort/node_designpattern/issues"
   },
-  "homepage": "https://github.com/syneffort/node_designpattern#readme"
+  "homepage": "https://github.com/syneffort/node_designpattern#readme",
+  "description": "",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1",
+    "glob": "^7.1.7",
+    "mkdirp": "^0.5.5",
+    "slug": "^5.1.0",
+    "superagent": "^6.1.0"
+  }
 }

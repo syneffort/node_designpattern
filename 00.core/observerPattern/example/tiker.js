@@ -10,6 +10,7 @@ function tiker (number, callback) {
 
     recursiveTimout(50, () => {
         if (Date.now() % 5 === 0) {
+            callback(new Error('divide error'));
             emitter.emit('error');
         }
 
@@ -33,7 +34,7 @@ function tiker (number, callback) {
     }
 }
 
-tiker(1000, (err, count) => { console.log(`${count} count was ticked`) })
-    .on('tick', () => console.log('ticked'))
+tiker(1000, (err, count) => { if (err) console.log(err); console.log(`${count} count was ticked`) })
+    .on('tick', () => {console.log('ticked')})
     .on('error', () => console.error('datetime is divided by 5!'));
 

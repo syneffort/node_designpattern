@@ -10,7 +10,7 @@
 //     }
 // });
 
-const spider = require('./spider_sequ').spider;
+const spider = require('./spider_para').spider;
 
 const url = process.argv[2];
 const nesting = parseInt(process.argv[3], 10) || 1;
