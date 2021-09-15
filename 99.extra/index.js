@@ -1,12 +1,17 @@
 const Singleton = require('./singleton/Singleton');
 const VehicleFactory = require('./factory/VehicleFactory');
 const CarBuilder = require('./builder/CarBuilder');
+const SUV = require('./prototype/SUV');
 
 // singletonDemo();
 
 // factoryDemo();
 
-builderDemo();
+// builderDemo();
+
+// prototypeDemo1();
+
+prototypeDemo2();
 
 function singletonDemo() {
     let singletonObj = Singleton.getInstance();
@@ -37,5 +42,34 @@ function builderDemo() {
     console.log(benz.toString());
 }
 
+function prototypeDemo1() {
+    const firstSUV = {
+        maker: 'Kia',
+        model: 'sportage',
+        year: 2021,
+        mud: () => {
+            console.log('now mudded!');
+        }
+    }
+    firstSUV.description = 'kia motors';
+
+    const secondSUV = Object.create(firstSUV);
+    // secondSUV.maker = 'Ranualt';
+    // secondSUV.model = 'QM6';
+    // secondSUV.year = 2019;
+
+    console.log(JSON.stringify(firstSUV, null, 2));
+    firstSUV.mud();
+    console.log(JSON.stringify(secondSUV, null, 2));
+    secondSUV.mud();
+}
+
+function prototypeDemo2() {
+    let suv1 = SUV('Kia', 'sportage', 2021);
+    let suv2 = SUV('Ranualt', 'QM6', 2019);
+
+    suv1.mud();
+    suv2.mud();
+}
 
 
